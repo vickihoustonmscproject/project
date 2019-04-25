@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
+<title>Ramen Dayo - Menu</title>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/shop-homepage.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jQuery/js/jquery.shop.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="ramen-menu-new.html">Ramen Dayo</a><img alt="Ramen Dayo Logo" src="images/sml-ramen-logo2.gif">
+		<button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+		<span class="navbar-toggler-icon"></span></button>
+		<div id="navbarResponsive" class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a class="nav-link" href="ramen-menu-new.html">Ramen &amp; Bowls</a> </li>
+				<li class="nav-item"><a class="nav-link" href="sides-menu-new.html">Gyoza &amp; Sides</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="jQuery/cart.html">My Order</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- Page Content -->
+<div class="container">
+
+		<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="list-group">
+				<a class="list-group-item active" href="ramen-menu-new.html">Ramen and Bowls</a>
+				<a class="list-group-item" href="sides-menu-new.html">Gyoza and Sides</a>
+				<a class="list-group-item" href="jQuery/cart.html">My Order</a>
+				<a class="list-group-item" href="survey.html">Questionnaire</a> </div>
+
+				<div class="d-none .d-md-block d-lg-block">
+						<p>&nbsp;</p>
+						<img alt="Ramen Dayo Logo" src="images/ramen-dayo-logo.gif">
+				</div>
+		</div>
+		<!-- /.col-lg-3 -->
+		<div class="col-lg-9">
+			<div id="site">
+				<div id="content">
+					<div id="products">
+
+						<div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="my-modal" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel" data-price="">My Modal</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body" id="modal-body">
+
+
+									<form class="add-to-cart" action="jQuery/cart.html" method="post" data-id="modalform">
+									<div class="product-deets" id="product-deets"></div>
+
+									<input type="hidden" name="qty" id="qty" class="qty" value="1" />
+									<div class="product-deets2" id="product-deets2"></div>
+									<div class="col-sm-12 text-center">
+									<input type="submit" value="Add to Order" class="btn btn-primary"/>
+									</div>
+									</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+						    <script type="text/javascript">
+								// send dish details to modal
+								//<div class="product-description" data-category="0" data-name="Test" data-price="20">
+						$('#my-modal').on('show.bs.modal', function (event) {
+							var $form = $( this );
+							var $product = $form.parent();
+							var myVal = $(event.relatedTarget).data('val');
+							var name = $(event.relatedTarget).data('name');
+							var price = $(event.relatedTarget).data('price');
+						  $(this).find(".modal-title").text(myVal);
+							//alert(name+" "+price);
+							out5 = '<div class="product-description" data-category="0" data-name="Test" data-price="20">';
+							out6 = '<input type="hidden" name="mydish" id="mydish" class="mydish" value="'+name+'" />'
+							+ '<input type="hidden" name="myprice" id="myprice" class="myprice" value="'+price+'" />'
+
+							document.getElementById("product-deets").innerHTML = out6;
+						});
+
+						    </script>
+
+								<script>
+									$(document).ready(function(){
+											$('[data-toggle="popover"]').popover();
+									});
+									</script>
+
+
+
+
+								<script>
+
+								//Pull menu options from menuoptions json file and output as drop down
+											var xmlhttp = new XMLHttpRequest(); //
+											var url = "ramenoptions.json";
+											xmlhttp.onreadystatechange = function() {
+												if (this.readyState == 4 && this.status == 200) {
+													var arrOptions = JSON.parse(this.responseText);
+														displayRamen(arrOptions);
+													}
+											};
+													function displayRamen(arrOptions) {
+													out2 = '<h5>Select any extra ramen toppings:</h5>';
+													var j;
+													for (j = 0; j < arrOptions.length; j++) {
+															out2 += '<input type="checkbox" id="'+ arrOptions[j].optionsname+'" value="'+ arrOptions[j].optionsname+'" name="addons" data-addprice="'+ arrOptions[j].optionsprice+'"><label for="'+ arrOptions[j].optionsname+'">'+ arrOptions[j].optionsname+' &pound;'+ arrOptions[j].optionsprice+'</label> <br>'
+														}
+													out2 += '';
+													document.getElementById("product-deets2").innerHTML = out2;
+												}
+										xmlhttp.open("GET", url, true);
+										xmlhttp.send();
+								// End menu options
+
+
+
+
+								</script>
+
+								<div class="row">
+								<div class="col-lg-4 col-md-6 mb-4">
+									<div class="card h-100">
+										<img alt="" class="card-img-top" src="../jt/admin/images/tonkotsu.jpg"></a>
+										<div class="card-body">
+											<h4 class="card-title"><a href="dish.html?dish=50">Tonkotsu</a></h4>
+											<h5>&#163;8.50</h5>
+											<p class="card-text">
+												Ramen Dayo's rich creamy 20-hour tonkotsu pork broth with springy ramen noodles, chashu pork belly, marinated kikurage mushrooms, spring onions and nori seaweed.
+											</p>
+											<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+												<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+											<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+													<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+											<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+															<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+											<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																			<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+										</div>
+										<div class="card-footer">
+										<div class="product-description" data-category="0" data-name="Tonkotsu" data-price="8.50">
+											<form class="add-to-cart" action="jQuery/cart.html" method="post">
+												<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+												<div class="float-right">
+													<button type="button" class="btn btn-primary" data-val="Tonkotsu" data-category="0" data-name="Tonkotsu" data-price="8.50" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+												</div>
+											</form>
+										</div>
+									</div></div></div>
+
+									<div class="col-lg-4 col-md-6 mb-4">
+										<div class="card h-100">
+											<img alt="" class="card-img-top" src="../jt/admin/images/miso-tonkotsu.jpg"></a>
+											<div class="card-body">
+												<h4 class="card-title"><a href="dish.html?dish=51">Tonkotsu Miso</a></h4>
+												<h5>&#163;8.90</h5>
+												<p class="card-text">
+													An even richer version of Ramen Dayo's Tonkotsu Ramen, with an miso base and all the usual toppings.
+												</p>
+												<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+													<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+												<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+														<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+												<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+												<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																				<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+											</div>
+											<div class="card-footer">
+											<div class="product-description" data-category="0" data-name="Tonkotsu Miso" data-price="8.90">
+												<form class="add-to-cart" action="jQuery/cart.html" method="post">
+													<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+													<div class="float-right">
+														<button type="button" class="btn btn-primary" data-val="Tonkotsu Miso" data-category="0" data-name="Tonkotsu Miso" data-price="8.90" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+													</div>
+												</form>
+											</div>
+										</div></div></div>
+
+										<div class="col-lg-4 col-md-6 mb-4">
+											<div class="card h-100">
+												<img alt="" class="card-img-top" src="../jt/admin/images/tantanmen.jpg"></a>
+												<div class="card-body">
+													<h4 class="card-title"><a href="dish.html?dish=52">Tantanmen</a></h4>
+													<h5>&#163;9.50</h5>
+													<p class="card-text">
+														A spicy sesame based ramen topped with spicy ground pork, threaded spring onion, pak choi, chilli oil and angel hair chilli.
+													</p>
+													<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+														<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+													<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+															<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+													<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																	<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+													<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																					<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+												</div>
+												<div class="card-footer">
+												<div class="product-description" data-category="0" data-name="Tantanmen" data-price="9.50">
+													<form class="add-to-cart" action="jQuery/cart.html" method="post">
+														<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+														<div class="float-right">
+															<button type="button" class="btn btn-primary" data-val="Tantanmen" data-category="0" data-name="Tantanmen" data-price="9.50" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+														</div>
+													</form>
+												</div>
+											</div></div></div>
+
+											<div class="col-lg-4 col-md-6 mb-4">
+												<div class="card h-100">
+													<img alt="" class="card-img-top" src="../jt/admin/images/veg-ramen.jpg"></a>
+													<div class="card-body">
+														<h4 class="card-title"><a href="dish.html?dish=53">Veg Ramen</a> <img alt="Vegetarian" height="30" src="images/veggie.gif" width="30"></h4>
+														<h5>&#163;9.50</h5>
+														<p class="card-text">
+															Our vegetarian ramen topped with pak choi, kikurage mushrooms, sweet potato, nori seaweed and spring onions.
+														</p>
+														<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+															<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+														<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+																<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+														<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																		<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+														<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																						<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+													</div>
+													<div class="card-footer">
+													<div class="product-description" data-category="0" data-name="Veg Ramen" data-price="9.50">
+														<form class="add-to-cart" action="jQuery/cart.html" method="post">
+															<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+															<div class="float-right">
+																<button type="button" class="btn btn-primary" data-val="Veg Ramen" data-category="0" data-name="Veg Ramen" data-price="9.50" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+															</div>
+														</form>
+													</div>
+												</div></div></div>
+
+												<div class="col-lg-4 col-md-6 mb-4">
+													<div class="card h-100">
+														<img alt="" class="card-img-top" src="../jt/admin/images/chicken-tantanmen.jpg"></a>
+														<div class="card-body">
+															<h4 class="card-title"><a href="dish.html?dish=54">Chicken Tantanmen</a></h4>
+															<h5>&#163;9.50</h5>
+															<p class="card-text">
+																A spicy sesame based ramen, topped with ground chicken, threaded spring onion, pak choi, chilli oil and angel hair chilli. Vegan noodle option available.
+															</p>
+															<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+																<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+															<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+																	<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+															<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																			<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+															<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																							<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+														</div>
+														<div class="card-footer">
+														<div class="product-description" data-category="0" data-name="Chicken Tantanmen" data-price="9.50">
+															<form class="add-to-cart" action="jQuery/cart.html" method="post">
+																<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+																<div class="float-right">
+																	<button type="button" class="btn btn-primary" data-val="Chicken Tantanmen" data-category="0" data-name="Chicken Tantanmen" data-price="9.50" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+																</div>
+															</form>
+														</div>
+													</div></div></div>
+
+													<div class="col-lg-4 col-md-6 mb-4">
+														<div class="card h-100">
+															<img alt="" class="card-img-top" src="../jt/admin/images/chashu-don.jpg"></a>
+															<div class="card-body">
+																<h4 class="card-title"><a href="dish.html?dish=55">Chashu-Don</a></h4>
+																<h5>&#163;8.00</h5>
+																<p class="card-text">
+																	We use the most flavoursome ends of the pork belly along with pickled daikon radish, spring onions, kizami nori, sesame seeds and tasty homemade sauce in our Chashu-Don rice bowl.
+																</p>
+																<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+																		<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+																<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																				<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+																<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																								<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+															</div>
+															<div class="card-footer">
+															<div class="product-description" data-category="0" data-name="Chashu-Don" data-price="8.00">
+																<form class="add-to-cart" action="jQuery/cart.html" method="post">
+																	<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+																	<div class="float-right">
+																		<button type="button" class="btn btn-primary" data-val="Chashu-Don" data-category="0" data-name="Chashu-Don" data-price="8.00" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+																	</div>
+																</form>
+															</div>
+														</div></div></div>
+
+														<div class="col-lg-4 col-md-6 mb-4">
+															<div class="card h-100">
+																<img alt="" class="card-img-top" src="../jt/admin/images/tantan-mazemen.jpg"></a>
+																<div class="card-body">
+																	<h4 class="card-title"><a href="dish.html?dish=56">Tantan Mazemen</a></h4>
+																	<h5>&#163;8.90</h5>
+																	<p class="card-text">
+																		A soupless style of ramen with a tantan base topped with shredded chashu pork belly, spicy ground pork, spring onion, sczechuan pickles, sauteed onion and kizami nori.
+																	</p>
+																	<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+																		<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+																	<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+																			<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+																	<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																					<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+																	<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																									<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+																</div>
+																<div class="card-footer">
+																<div class="product-description" data-category="0" data-name="Tantan Mazemen" data-price="8.90">
+																	<form class="add-to-cart" action="jQuery/cart.html" method="post">
+																		<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+																		<div class="float-right">
+																			<button type="button" class="btn btn-primary" data-val="Tantan Mazemen" data-category="0" data-name="Tantan Mazemen" data-price="8.90" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+																		</div>
+																	</form>
+																</div>
+															</div></div></div>
+
+															<div class="col-lg-4 col-md-6 mb-4">
+																<div class="card h-100">
+																	<img alt="" class="card-img-top" src="../jt/admin/images/veggie-devil.jpg"></a>
+																	<div class="card-body">
+																		<h4 class="card-title"><a href="dish.html?dish=61">Veggie Devil Ramen</a> <img alt="Vegetarian" height="30" src="images/veggie.gif" width="30"></h4>
+																		<h5>&#163;9.00</h5>
+																		<p class="card-text">
+																			A miso based spicy veggie ramen, topped with 4 different types of chilli beansprouts, menma bamboo & spring onions. Vegan option also available.
+																		</p>
+																		<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+																			<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+																		<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+																				<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+																		<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																						<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+																	</div>
+																	<div class="card-footer">
+																	<div class="product-description" data-category="0" data-name="Veggie Devil Ramen" data-price="9.00">
+																		<form class="add-to-cart" action="jQuery/cart.html" method="post">
+																			<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+																			<div class="float-right">
+																				<button type="button" class="btn btn-primary" data-val="Veggie Devil Ramen" data-category="0" data-name="Veggie Devil Ramen" data-price="9.00" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+																			</div>
+																		</form>
+																	</div>
+																</div></div></div>
+
+																<div class="col-lg-4 col-md-6 mb-4">
+																	<div class="card h-100">
+																		<img alt="" class="card-img-top" src="../jt/admin/images/devil-ramen.jpg"></a>
+																		<div class="card-body">
+																			<h4 class="card-title"><a href="dish.html?dish=62">Devil Ramen</a></h4>
+																			<h5>&#163;9.00</h5>
+																			<p class="card-text">
+																				Akuma Ramen Devil Ramen - a spicy miso based ramen topped with 4 different types of chilli, chashu pork belly, spring onions and beansprouts.
+																			</p>
+																			<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+																				<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+																			<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+																					<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+																			<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																							<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+																		</div>
+																		<div class="card-footer">
+																		<div class="product-description" data-category="0" data-name="Devil Ramen" data-price="9.00">
+																			<form class="add-to-cart" action="jQuery/cart.html" method="post">
+																				<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+																				<div class="float-right">
+																					<button type="button" class="btn btn-primary" data-val="Devil Ramen" data-category="0" data-name="Devil Ramen" data-price="9.00" data-toggle="modal" data-target="#my-modal">Add to Order</button>
+																				</div>
+																			</form>
+																		</div>
+																	</div></div></div>
+
+
+									</div>
+
+<div id="names"></div>
+
+
+
+</div></div></div>
+
+
+
+
+
+			<!-- /.row --></div>
+		<!-- /.col-lg-9 --></div>
+	<!-- /.row --></div>
+<!-- /.container -->
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+	<div class="container">
+		<p class="m-0 text-center text-white">Copyright &copy; Ramen Dayo 2019</p>
+	</div>
+	<!-- /.container -->
+</footer>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
