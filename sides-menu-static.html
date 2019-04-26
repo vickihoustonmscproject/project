@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
+<title>Ramen Dayo - Menu</title>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/shop-homepage.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="jQuery/js/jquery.shop.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="ramen-menu-new.html">Ramen Dayo</a><img alt="Ramen Dayo Logo" src="images/sml-ramen-logo2.gif">
+		<button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+		<span class="navbar-toggler-icon"></span></button>
+		<div id="navbarResponsive" class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" href="ramen-menu-new.html">Ramen &amp; Bowls</a> </li>
+				<li class="nav-item active"><a class="nav-link" href="sides-menu-new.html">Gyoza &amp; Sides</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="jQuery/cart.html">My Order</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- Page Content -->
+<div class="container">
+
+		<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="list-group">
+				<a class="list-group-item" href="ramen-menu-new.html">Ramen and Bowls</a>
+				<a class="list-group-item active" href="sides-menu-new.html">Gyoza and Sides</a>
+				<a class="list-group-item" href="jQuery/cart.html">My Order</a>
+				<a class="list-group-item" href="survey.html">Questionnaire</a> </div>
+
+
+				<div class="d-none .d-md-block d-lg-block">
+						<p>&nbsp;</p>
+						<img alt="Ramen Dayo Logo" src="images/ramen-dayo-logo.gif">
+				</div>
+		</div>
+		<!-- /.col-lg-3 -->
+		<div class="col-lg-9">
+			<div id="site">
+				<div id="content">
+					<div id="products">
+
+
+
+
+								<script>
+									$(document).ready(function(){
+											$('[data-toggle="popover"]').popover();
+									});
+									</script>
+
+
+
+
+								<script>
+
+								//Pull menu options from menuoptions json file and output as drop down
+											var xmlhttp = new XMLHttpRequest(); //
+											var url = "menuoptions.json";
+											xmlhttp.onreadystatechange = function(test) {
+												if (this.readyState == 4 && this.status == 200) {
+													var arrOptions = JSON.parse(this.responseText);
+													out2 = '<select name="addons" class="addons">';
+													var j;
+													for (j = 0; j < arrOptions.length; j++) {
+															out2 += '<option value="'+ arrOptions[j].optionsname+'" data-addprice="'+ arrOptions[j].optionsprice+'">'+ arrOptions[j].optionsname+'</option>';
+														}
+													out2 += '</select>';
+
+												}
+											};
+								// End menu options
+
+
+
+
+								</script>
+
+								<div class="row">
+								<div class="col-lg-4 col-md-6 mb-4">
+									<div class="card h-100">
+										<img alt="" class="card-img-top" src="../jt/admin/images/veggie-gyoza.jpg">
+										<div class="card-body">
+											<h4 class="card-title"><a href="sidedish.html?dish=57">Veg Gyoza</a> <img alt="Vegetarian" height="30" src="images/veggie.gif" width="30"></h4>
+											<h5>&#163;4.50</h5>
+											<p class="card-text">
+												Pan-fried dumplings stuffed with edamame, peas, carrots, cabbage and white radish and wrapped in spinach infused pastry.
+											</p>
+											<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+												<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+											<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+															<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+											<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																			<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+										</div>
+										<div class="card-footer">
+										<div class="product-description" data-category="0" data-name="Veg Gyoza" data-price="4.50">
+											<form class="add-to-cart" action="jQuery/cart.html" method="post">
+												<input type="hidden" name="qty-1" class="qty" value="1" />
+												<div class="float-right">
+													<input type="submit" value="Add to Order" class="btn btn-primary" style="float:right"/>
+												</div>
+											</form>
+										</div>
+									</div></div></div>
+
+									<div class="col-lg-4 col-md-6 mb-4">
+										<div class="card h-100">
+											<img alt="" class="card-img-top" src="../jt/admin/images/chicken-karagge.jpg">
+											<div class="card-body">
+												<h4 class="card-title"><a href="sidedish.html?dish=58">Chicken Karagge</a> </h4>
+												<h5>&#163;4.50</h5>
+												<p class="card-text">
+													Japanese fried chicken with a choice of kewpie mayo or our og spicy sauce.
+												</p>
+												<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+													<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+												<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+														<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+												<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																				<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+											</div>
+											<div class="card-footer">
+											<div class="product-description" data-category="0" data-name="Chicken Karagge" data-price="4.50">
+												<form class="add-to-cart" action="jQuery/cart.html" method="post">
+													<input type="hidden" name="qty-1" class="qty" value="1" />
+													<div class="float-right">
+														<input type="submit" value="Add to Order" class="btn btn-primary" style="float:right"/>
+													</div>
+												</form>
+											</div>
+										</div></div></div>
+
+										<div class="col-lg-4 col-md-6 mb-4">
+											<div class="card h-100">
+												<img alt="" class="card-img-top" src="../jt/admin/images/bonito-fries.jpg">
+												<div class="card-body">
+													<h4 class="card-title"><a href="sidedish.html?dish=60">Smokey Bonito Fries</a> </h4>
+													<h5>&#163;2.90</h5>
+													<p class="card-text">
+														Thin-cut fries coated in smokey katsuobushi bonito, sesame seasoning & topped with nori seaweed (optional) Perfect with a side of Kewpie mayo!!
+													</p>
+													<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+														<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+													<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																	<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+												</div>
+												<div class="card-footer">
+												<div class="product-description" data-category="0" data-name="Smokey Bonito Fries" data-price="2.90">
+													<form class="add-to-cart" action="jQuery/cart.html" method="post">
+														<input type="hidden" name="qty-1" class="qty" value="1" />
+														<div class="float-right">
+															<input type="submit" value="Add to Order" class="btn btn-primary" style="float:right"/>
+														</div>
+													</form>
+												</div>
+											</div></div></div>
+
+											<div class="col-lg-4 col-md-6 mb-4">
+												<div class="card h-100">
+													<img alt="" class="card-img-top" src="../jt/admin/images/wakame-salad.jpg">
+													<div class="card-body">
+														<h4 class="card-title"><a href="sidedish.html?dish=63">Wakame Salad</a> <img alt="Vegetarian" height="30" src="images/veggie.gif" width="30"></h4>
+														<h5>&#163;2.90</h5>
+														<p class="card-text">
+															Seaweed in a light sesame and soybean marinade.
+														</p>
+
+														<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																		<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+														<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																						<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+													</div>
+													<div class="card-footer">
+													<div class="product-description" data-category="0" data-name="Wakame Salad" data-price="2.90">
+														<form class="add-to-cart" action="jQuery/cart.html" method="post">
+															<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />
+															<div class="float-right">
+																<input type="submit" value="Add to Order" class="btn btn-primary" style="float:right"/>
+															</div>
+														</form>
+													</div>
+												</div></div></div>
+
+												<div class="col-lg-4 col-md-6 mb-4">
+													<div class="card h-100">
+														<img alt="" class="card-img-top" src="../jt/admin/images/chicken-gyoza.jpg">
+														<div class="card-body">
+															<h4 class="card-title"><a href="sidedish.html?dish=64">Chicken Gyoza</a> </h4>
+															<h5>&#163;5.00</h5>
+															<p class="card-text">
+																Traditional pan-fried Japanese dumplings filled with chicken Great as an appetiser or an accompaniment to ramen.
+															</p>
+															<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+																<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+															<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame">
+																			<img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>
+															<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																							<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+														</div>
+														<div class="card-footer">
+														<div class="product-description" data-category="0" data-name="Chicken Gyoza" data-price="5.00">
+															<form class="add-to-cart" action="jQuery/cart.html" method="post">
+																<input type="hidden" name="qty-1" class="qty" value="1" />
+																<div class="float-right">
+																	<input type="submit" value="Add to Order" class="btn btn-primary" style="float:right"/>
+																</div>
+															</form>
+														</div>
+													</div></div></div>
+
+													<div class="col-lg-4 col-md-6 mb-4">
+														<div class="card h-100">
+															<img alt="" class="card-img-top" src="../jt/admin/images/cauliflower.jpg">
+															<div class="card-body">
+																<h4 class="card-title"><a href="sidedish.html?dish=65">Cauliflower Karaage</a> <img alt="Vegetarian" height="30" src="images/veggie.gif" width="30"></h4>
+																<h5>&#163;2.50</h5>
+																<p class="card-text">
+																	Get 1 of your 5-a-day with our new Cauliflower Karaage. Available with kewpie mayo or a vegan special spicy sauce.
+																</p>
+																<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten">
+																	<img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>
+																<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs">
+																		<img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>
+																<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy">
+																								<img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>
+															</div>
+															<div class="card-footer">
+															<div class="product-description" data-category="0" data-name="Cauliflower Karaage" data-price="2.50">
+																<form class="add-to-cart" action="jQuery/cart.html" method="post">
+																	<input type="hidden" name="qty-1" class="qty" value="1" />
+																	<div class="float-right">
+																		<input type="submit" value="Add to Order" class="btn btn-primary" style="float:right"/>
+																	</div>
+																</form>
+															</div>
+														</div></div></div>
+
+
+
+									</div>
+
+<div id="names"></div>
+
+
+
+</div></div></div>
+
+
+
+
+
+			<!-- /.row --></div>
+		<!-- /.col-lg-9 --></div>
+	<!-- /.row --></div>
+<!-- /.container -->
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+	<div class="container">
+		<p class="m-0 text-center text-white">Copyright &copy; Ramen Dayo 2019</p>
+	</div>
+	<!-- /.container -->
+</footer>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
+<title>Ramen Dayo - Menu</title>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/shop-homepage.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="jQuery/js/jquery.shop.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="#">Ramen Dayo</a>
+		<button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+		<span class="navbar-toggler-icon"></span></button>
+		<div id="navbarResponsive" class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">Home
+				<span class="sr-only">(current)</span> </a></li>
+				<li class="nav-item"><a class="nav-link" href="ramen-menu.html">Ramen &amp; Bowls</a> </li>
+				<li class="nav-item active"><a class="nav-link" href="sides-menu.html">Gyoza &amp; Sides</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="jQuery/cart.html">My Order</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- Page Content -->
+<div class="container">
+		<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="list-group">
+				<a class="list-group-item" href="ramen-menu.html">Ramen and Bowls</a>
+				<a class="list-group-item active" href="sides-menu.html">Gyoza and Sides</a>
+				<a class="list-group-item" href="jQuery/cart.html">My Order</a> </div>
+			<div class="row">
+&nbsp;</div>
+&nbsp; &nbsp; &nbsp;
+			<img alt="Ramen Dayo Logo" height="200" src="images/ramen-dayo-logo.gif">
+		</div>
+		<!-- /.col-lg-3 -->
+		<div class="col-lg-9">
+			<div class="row">&nbsp;</div>
+			<div id="site">
+				<div id="content">
+					<div id="products">
+
+
+
+
+<script>
+
+//Pull menu options from menuoptions json file and output as drop down
+			var xmlhttp = new XMLHttpRequest(); //
+			var url = "menuoptions.json";
+			xmlhttp.onreadystatechange = function(test) {
+				if (this.readyState == 4 && this.status == 200) {
+					var arrOptions = JSON.parse(this.responseText);
+					out2 = '<select name="addons" class="addons">';
+					var j;
+					for (j = 0; j < arrOptions.length; j++) {
+							out2 += '<option value="'+ arrOptions[j].optionsname+'" data-addprice="'+ arrOptions[j].optionsprice+'">'+ arrOptions[j].optionsname+'</option>';
+						}
+					out2 += '</select>';
+
+				}
+			};
+// End menu options
+
+
+
+
+
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+var xmlhttp = new XMLHttpRequest(); //
+var url = "menu.json";
+
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var arrNames = JSON.parse(this.responseText);
+
+    displayNames(arrNames,out2);
+  }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+
+
+function displayNames(arr,out2) {
+  var out = "";
+	//alert (out);
+  var i;
+  out += '<div class="row">';
+  for(i = 0; i < arr.length; i++) {
+		if (arr[i].category==1) {
+    out += '<div class="col-lg-4 col-md-6 mb-4">'
+    + '<div class="card h-100">'
+    + '<img alt="" class="card-img-top" src="../jt/admin/images/'+  arr[i].image+'"></a>'
+    + '<div class="card-body">'
+    + '<h4 class="card-title"><a href="names3.html?dish='+ arr[i].dishID +'">'
+    + arr[i].dish
+    +'</a></h4>'
+    + '<h5>&#163;'+ arr[i].price +'</h5>'
+    + '<p class="card-text">'
+    + arr[i].description
+    + '</p>'
+    + '</div><div class="card-footer">'
+		+ '<div class="product-description" data-category="'+ arr[i].category+'" data-name="'+ arr[i].dish+'" data-price="'+ arr[i].price +'">'
+		+ '<form class="add-to-cart" action="jQuery/cart.html" method="post">'
+		+ '<input type="hidden" name="qty-'+ i+1 + '" id="qty-'+ i+1 +'" class="qty" value="1" />';
+		if (arr[i].options==1) {
+		out += out2;
+
+	} else {
+		out += '<input type="hidden" name="addons" class="addons" value="">';
+	}
+		out += '<p><input type="submit" value="Add to Order" class="btn btn-primary" style="float:right"/>&nbsp;</p>'
+		+ '</form>'
+    + '</div></div></div></div>';
+	} //end if
+  }
+  out +='</div>';
+
+  document.getElementById("names").innerHTML = out;
+
+
+}
+</script>
+
+<div id="names">
+</div>
+</div></div></div>
+			<!-- /.row --></div>
+		<!-- /.col-lg-9 --></div>
+	<!-- /.row --></div>
+<!-- /.container -->
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+	<div class="container">
+		<p class="m-0 text-center text-white">Copyright &copy; Ramen Dayo 2019</p>
+	</div>
+	<!-- /.container -->
+</footer>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
