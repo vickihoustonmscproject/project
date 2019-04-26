@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
+<title>Ramen Dayo - Menu</title>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/shop-homepage.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="jQuery/js/jquery.shop.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="ramen-menu-new.html">Ramen Dayo</a><img alt="Ramen Dayo Logo" src="images/sml-ramen-logo2.gif">
+		<button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+		<span class="navbar-toggler-icon"></span></button>
+		<div id="navbarResponsive" class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a class="nav-link" href="ramen-menu-new.html">Ramen &amp; Bowls</a> </li>
+				<li class="nav-item"><a class="nav-link" href="sides-menu-new.html">Gyoza &amp; Sides</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="jQuery/cart.html">My Order</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- Page Content -->
+<div class="container">
+
+		<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="list-group">
+				<a class="list-group-item active" href="ramen-menu-new.html">Ramen and Bowls</a>
+				<a class="list-group-item" href="sides-menu-new.html">Gyoza and Sides</a>
+				<a class="list-group-item" href="jQuery/cart.html">My Order</a>
+				<a class="list-group-item" href="survey.html">Questionnaire</a> </div>
+
+				<div class="d-none .d-md-block d-lg-block">
+						<p>&nbsp;</p>
+						<img alt="Ramen Dayo Logo" src="images/ramen-dayo-logo.gif">
+						<p>&nbsp;</p>
+				</div>
+		</div>
+		<!-- /.col-lg-3 -->
+		<div class="col-lg-9">
+			<div id="site">
+				<div id="content">
+					<div id="products">
+
+						<div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="my-modal" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel" data-price="">My Modal</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body" id="modal-body">
+
+
+									<form class="add-to-cart" action="jQuery/cart.html" method="post" data-id="modalform">
+									<div class="product-deets" id="product-deets"></div>
+
+									<input type="hidden" name="qty" id="qty" class="qty" value="1" />
+									<div class="product-deets2" id="product-deets2"></div>
+									<div class="col-sm-12 text-center">
+									<input type="submit" value="Add to Order" class="btn btn-primary"/>
+									</div>
+									</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+						    <script>
+								// send dish details to modal
+								//<div class="product-description" data-category="0" data-name="Test" data-price="20">
+						$('#my-modal').on('show.bs.modal', function (event) {
+							var $form = $( this );
+							var $product = $form.parent();
+							var myVal = $(event.relatedTarget).data('val');
+							var name = $(event.relatedTarget).data('name');
+							var price = $(event.relatedTarget).data('price');
+						  $(this).find(".modal-title").text(myVal);
+							//alert(name+" "+price);
+							out5 = '<div class="product-description" data-category="0" data-name="Test" data-price="20">';
+							out6 = '<input type="hidden" name="mydish" id="mydish" class="mydish" value="'+name+'" />'
+							+ '<input type="hidden" name="myprice" id="myprice" class="myprice" value="'+price+'" />'
+
+							document.getElementById("product-deets").innerHTML = out6;
+						});
+
+						    </script>
+
+								<script>
+									$(document).ready(function(){
+											$('[data-toggle="popover"]').popover();
+									});
+									</script>
+
+
+
+
+								<script>
+
+								//Pull menu options from menuoptions json file and output as drop down
+											var xmlhttp = new XMLHttpRequest(); //
+											var url = "ramenoptions.json";
+											xmlhttp.onreadystatechange = function() {
+												if (this.readyState == 4 && this.status == 200) {
+													var arrOptions = JSON.parse(this.responseText);
+														displayRamen(arrOptions);
+													}
+											};
+													function displayRamen(arrOptions) {
+													out2 = '<h5>Select any extra ramen toppings:</h5>';
+													var j;
+													for (j = 0; j < arrOptions.length; j++) {
+															out2 += '<input type="checkbox" id="'+ arrOptions[j].optionsname+'" value="'+ arrOptions[j].optionsname+'" name="addons" data-addprice="'+ arrOptions[j].optionsprice+'"><label for="'+ arrOptions[j].optionsname+'">'+ arrOptions[j].optionsname+' &pound;'+ arrOptions[j].optionsprice+'</label> <br>'
+														}
+													out2 += '';
+													document.getElementById("product-deets2").innerHTML = out2;
+												}
+										xmlhttp.open("GET", url, true);
+										xmlhttp.send();
+								// End menu options
+
+
+
+
+								</script>
+
+
+
+
+<div id="names"></div>
+<script>
+
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+var dishid = getUrlParameter('dish');
+
+var xmlhttp = new XMLHttpRequest(); //
+var url = "menu.json";
+
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var arrNames = JSON.parse(this.responseText);
+    displayNames(arrNames);
+  }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function displayNames(arr) {
+  var out = "";
+  for(i = 0; i < arr.length; i++) {
+  var j=dishid;
+  if (arr[i].dishID==j){
+		out = '<div class="row">'
+		+ '	<div class="col-lg-8">'
+		+ '	<img alt="" class="card-img-top img-fluid" src="../jt/admin/images/'+ arr[i].image+'">'
+		+ '	</div>'
+		+ '<div class="col-lg-4">'
+		+ '<div class="card-body"><h4 class="card-title">'
+		+ arr[i].dish +' - &#163;'
+		+ arr[i].price
+		if (arr[i].veg==1){
+			out += '&nbsp; <img alt="Vegetarian" height="30" src="images/veggie.gif" width="30">'
+		}
+		out += '</h4><p class="card-text">'
+		+ arr[i].description
+		+ '</p>'
+		+ '<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains cereals containing gluten." title="Allergens: Gluten"><img alt="Allergens: Gluten" src="images/allergy-gluten.gif"></a>&nbsp;'
+		+ '<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains eggs." title="Allergens: Eggs"><img alt="Allergens: Eggs" src="images/allergy-egg.gif"></a>&nbsp;'
+		+ '<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains sesame." title="Allergens: Sesame"><img alt="Allergens: Sesame" src="images/allergy-sesame.gif"></a>&nbsp;'
+		+ '<a data-placement="top" data-toggle="popover" data-trigger="focus" tabindex="0" data-content="This dish contains soy." title="Allergens: Soy"><img alt="Allergens: Soy" src="images/allergy-soy.gif"></a>&nbsp;'
+		+ '</div><div class="card-footer">'
+		+ '<div class="product-description" data-category="0" data-name="'+ arr[i].dish +'" data-price="'+ arr[i].price +'">'
+		+ '<form class="add-to-cart" action="jQuery/cart.html" method="post">'
+		+ '<input type="hidden" name="qty-1" id="qty-1" class="qty" value="1" />'
+		+ '<div class="float-right">'
+		+ '<button type="button" class="btn btn-primary" data-val="'+ arr[i].dish +'" data-category="0" data-name="'+ arr[i].dish +'" data-price="'+ arr[i].price +'" data-toggle="modal" data-target="#my-modal">Add to Order</button>'
+		+ '<p>&nbsp;</p></div></form></div></div></div></div>'
+		+ '	</div>';
+
+
+
+
+  }//end if
+  }
+  document.getElementById("names").innerHTML = out;
+}
+</script>
+
+
+</div></div></div>
+
+
+
+
+
+			<!-- /.row --></div>
+		<!-- /.col-lg-9 --></div>
+	<!-- /.row --></div>
+<!-- /.container -->
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+	<div class="container">
+		<p class="m-0 text-center text-white">Copyright &copy; Ramen Dayo 2019</p>
+	</div>
+	<!-- /.container -->
+</footer>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
